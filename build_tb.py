@@ -6,7 +6,7 @@ from ctx import agent_ctx
 from user_config import engine
 
 
-def build_tb_pkg(sc: dict, hc: dict, out: str):
+def build_tb_pkg(sc: dict, hc: dict, out: str) -> None:
     tb_name = hc["tb_name"]
     dst_dir = f"{out}/{tb_name}_pkg"
 
@@ -30,7 +30,6 @@ def build_agent_pkg(agent_name: str, sc: dict, hc: dict, out: str, env_name: str
 
     ctx = agent_ctx(agent_name, sc, hc)
     tpl_ctx = Context(ctx)
-
     for i in sc.keys():
         suffix = sc[i]
         tpl = engine.get_template(f"agent_pkg/{i}.tpl")
@@ -56,12 +55,13 @@ def generate_tb(sc, hc, out):
     build_tb_pkg(sc, hc, out)
     build_env(sc, hc, out)
 
+
 if __name__ == '__main__':
     from user_config import suffix_config, hier_config
 
     # build_tb_pkg(sc=suffix_config, hc=hier_config, out=".")
     # build_agent_pkg("cmd", sc=suffix_config, hc=hier_config, out=".")
-    build_env(sc=suffix_config, hc=hier_config, out=".")
+    # build_env(sc=suffix_config, hc=hier_config, out=".")
 
     # build_env(suffix_config, hier_config, ".")
 

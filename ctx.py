@@ -108,10 +108,3 @@ def tb_ctx(sc: dict, hc: dict):
     }
     kv_upper(ctx)
     return ctx
-
-
-if __name__ == '__main__':
-    from pprint import pp
-    from user_config import suffix_config, hier_config
-
-    pp(agent_ctx("cmd", suffix_config, hier_config))
