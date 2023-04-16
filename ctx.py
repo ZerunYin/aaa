@@ -1,7 +1,7 @@
 from utils import kv_upper
 
 
-def interface_ctx(agent_name, sc, hc):
+def interface_ctx(agent_name: str, sc: dict, hc: dict):
     suffix = sc["interface"]
     return {
         "interface_name": f"{agent_name}_{suffix}",
@@ -9,7 +9,7 @@ def interface_ctx(agent_name, sc, hc):
     }
 
 
-def sequence_item_ctx(agent_name, sc, hc):
+def sequence_item_ctx(agent_name: str, sc: dict, hc: dict):
     suffix = sc["sequence_item"]
     dut_name = hc["dut_name"]
     return {
@@ -19,7 +19,7 @@ def sequence_item_ctx(agent_name, sc, hc):
     }
 
 
-def sequence_ctx(agent_name, sc, hc):
+def sequence_ctx(agent_name: str, sc: dict, hc: dict):
     suffix = sc["sequence_item"]
     dut_name = hc["dut_name"]
     return {
@@ -29,7 +29,7 @@ def sequence_ctx(agent_name, sc, hc):
     }
 
 
-def sequencer_ctx(agent_name, sc, hc):
+def sequencer_ctx(agent_name: str, sc: dict, hc: dict):
     suffix = sc["sequencer"]
     return {
         "sequencer_name": f"{agent_name}_{suffix}",
@@ -37,7 +37,7 @@ def sequencer_ctx(agent_name, sc, hc):
     }
 
 
-def driver_ctx(agent_name, sc, hc):
+def driver_ctx(agent_name: str, sc: dict, hc: dict):
     suffix = sc["driver"]
     return {
         "driver_name": f"{agent_name}_{suffix}",
@@ -45,7 +45,7 @@ def driver_ctx(agent_name, sc, hc):
     }
 
 
-def monitor_ctx(agent_name, sc, hc):
+def monitor_ctx(agent_name: str, sc: dict, hc: dict):
     suffix = sc["monitor"]
     return {
         "monitor_name": f"{agent_name}_{suffix}",
@@ -53,7 +53,7 @@ def monitor_ctx(agent_name, sc, hc):
     }
 
 
-def agent_config_ctx(agent_name, sc, hc):
+def agent_config_ctx(agent_name: str, sc: dict, hc: dict):
     suffix = sc["agent_config"]
     return {
         "agent_config_name": f"{agent_name}_{suffix}",
@@ -61,7 +61,7 @@ def agent_config_ctx(agent_name, sc, hc):
     }
 
 
-def agent_ctx(agent_name, sc, hc):
+def agent_ctx(agent_name: str, sc: dict, hc: dict):
     ctx = dict()
     suffix = sc["agent"]
     ctx.update({
@@ -85,15 +85,15 @@ def agent_ctx(agent_name, sc, hc):
     return ctx
 
 
-def package_ctx(package_name, sc, hc):
+def package_ctx(agent_name: str, sc: dict, hc: dict):
     suffix = sc["package"]
     return {
-        "package_name": f"{package_name}_{suffix}",
-        "package_filename": f"{package_name}_{suffix}.sv",
+        "package_name": f"{agent_name}_{suffix}",
+        "package_filename": f"{agent_name}_{suffix}.sv",
     }
 
 
-def tb_ctx(sc, hc):
+def tb_ctx(sc: dict, hc: dict):
     dut_name = hc["dut_name"]
     tb_name = hc["tb_name"]
     ctx = {
@@ -113,4 +113,5 @@ def tb_ctx(sc, hc):
 if __name__ == '__main__':
     from pprint import pp
     from user_config import suffix_config, hier_config
+
     pp(agent_ctx("cmd", suffix_config, hier_config))
