@@ -18,5 +18,7 @@ dut_name = "icache"
 hier_config = {
     "dut_name": f"{dut_name}",
     "tb_name": f"tb_{dut_name}",
-    "agents": ["cmd", "msg"]
+    "envs": {
+        "agents": ["cmd", "msg"]
+    },
 }
