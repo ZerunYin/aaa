@@ -13,4 +13,4 @@ function {{agent_name}}::new(string name = "{{agent_name}}", uvm_component paren
   super.new(name, parent);
 endfunction
 
-`ednif // {{AGENT_FILENAME}}
+`endif // {{AGENT_FILENAME}}

@@ -13,4 +13,4 @@ function {{driver_name}}::new(string name = "{{driver_name}}", uvm_component par
   super.new(name, parent);
 endfunction
 
-`ednif // {{DRIVER_FILENAME}}
+`endif // {{DRIVER_FILENAME}}

@@ -12,4 +12,4 @@ function {{sequencer_name}}::new(string name = "{{sequencer_name}}", uvm_compone
   super.new(name, parent);
 endfunction
 
-`ednif // {{SEQUENCER_FILENAME}}
+`endif // {{SEQUENCER_FILENAME}}

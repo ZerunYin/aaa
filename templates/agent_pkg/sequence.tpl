@@ -1,7 +1,7 @@
 `ifndef {{SEQUENCE_NAME}}
 `define {{SEQUENCE_NAME}}
 
-class {{sequence_name}} extennds {{sequence_basename}};
+class {{sequence_name}} extends {{sequence_basename}};
   `uvm_object_utils_begin({{sequence_name}})
   `uvm_object_utils_end
 
@@ -14,4 +14,4 @@ function {{sequence_name}}::new(string name = "{{sequence_name}}");
   super.new(name);
 endfunction
 
-`ednif // {{SEQUENCE_NAME}}
+`endif // {{SEQUENCE_NAME}}

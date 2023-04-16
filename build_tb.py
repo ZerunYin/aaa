@@ -7,8 +7,9 @@ from user_config import engine
 
 
 def build_tb_pkg(sc: dict, hc: dict, out: str) -> None:
+    dut_name = hc["dut_name"]
     tb_name = hc["tb_name"]
-    dst_dir = f"{out}/{tb_name}_pkg"
+    dst_dir = f"{out}/{tb_name}_base_pkg"
 
     if not os.path.exists(dst_dir):
         os.mkdir(dst_dir)
@@ -18,7 +19,7 @@ def build_tb_pkg(sc: dict, hc: dict, out: str) -> None:
     for i in ["sequence_item", "sequence", "package"]:
         suffix = sc[i]
         tpl = engine.get_template(f"tb_pkg/{i}.tpl")
-        with open(f"{dst_dir}/{tb_name}_{suffix}.sv", "w") as fh:
+        with open(f"{dst_dir}/{tb_name}_base_{suffix}.sv", "w") as fh:
             fh.write(tpl.render(tpl_ctx))
 
 
@@ -65,4 +66,4 @@ if __name__ == '__main__':
 
     # build_env(suffix_config, hier_config, ".")
 
-    generate_tb(sc=suffix_config, hc=hier_config, out="./demo")
+    generate_tb(sc=suffix_config, hc=hier_config, out="C:/Users/yinze/Documents/demo")

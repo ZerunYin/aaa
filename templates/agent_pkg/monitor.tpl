@@ -13,4 +13,4 @@ function {{monitor_name}}::new(string name = "{{monitor_name}}", uvm_component p
   super.new(name, parent);
 endfunction
 
-`ednif // {{MONITOR_FILENAME}}
+`endif // {{MONITOR_FILENAME}}
