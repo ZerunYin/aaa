@@ -7,7 +7,6 @@ from user_config import engine
 
 
 def build_tb_pkg(sc: dict, hc: dict, out: str) -> None:
-    dut_name = hc["dut_name"]
     tb_name = hc["tb_name"]
     dst_dir = f"{out}/{tb_name}_base_pkg"
 
@@ -48,6 +47,18 @@ def build_env(sc: dict, hc: dict, out: str) -> None:
         for env_name, agent_names in hc["envs"].items():
             for agent_name in agent_names:
                 build_agent_pkg(agent_name, sc, hc, out, env_name)
+
+
+def build_makefile(sc: dict, hc: dict, out: str) -> None:
+    env_cnt = len(hc["envs"])
+    if env_cnt == 1:
+        agent_names = hc["envs"]["agents"]
+        for agent_name in agent_names:
+            pass
+    elif env_cnt > 1:
+        for env_name, agent_names in hc["envs"].items():
+            for agent_name in agent_names:
+                pass
 
 
 def generate_tb(sc, hc, out):

@@ -11,6 +11,6 @@ endclass : {{sequence_item_name}}
 
 function {{sequence_item_name}}::new(string name = "{{sequence_item_name}}");
   super.new(name);
-endfunction
+endfunction : new
 
 `endif // {{SEQUENCE_ITEM_NAME}}

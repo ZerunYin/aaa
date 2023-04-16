@@ -12,6 +12,6 @@ endclass : {{tb_base_sequence_name}}
 
 function {{tb_base_sequence_name}}::new(string name = "{{tb_base_sequence_name}}");
   super.new(name);
-endfunction
+endfunction : new
 
 `endif // {{TB_BASE_SEQUENCE_FILENAME}}
